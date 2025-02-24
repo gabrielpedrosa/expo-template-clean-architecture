@@ -1,0 +1,19 @@
+{
+    "app": {
+        "name": "expo-template-clean-architecture", 
+        "slug": "expo-template-clean-architecture", 
+        "icon": "./assets/images/adaptive-icon.png",
+        "package": "com.example.expotemplatecleanarchitecture", 
+        "favicon": "./assets/images/favicon.png", 
+        "adaptiveIcon": {
+            "foregroundImage": "./assets/images/adaptive-icon.png", 
+            "backgroundColor": "#F5ECD5"
+        },
+        "splashScreen": {
+            "show": true,
+            "image": "./assets/images/splash/splash-screen.png", 
+            "resizeMode": "contain",
+            "backgroundColor": "#F5ECD5"
+        }
+    }
+}

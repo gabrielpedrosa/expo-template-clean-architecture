@@ -6,5 +6,7 @@ Este projeto serve como base para aplicações Expo utilizando Clean Architectur
 ## Get started
 
 ```powershell
-npx create-expo-app meu-novo-projeto --template https://github.com/gabrielpedrosa/expo-template-clean-architetcure.git
+npx create-expo-app [meu-novo-projeto] --template https://github.com/gabrielpedrosa/expo-template-clean-architetcure
 ```
+
+Substitua [meu-novo-projeto] pelo nome da pasta raiz da sua aplicação.

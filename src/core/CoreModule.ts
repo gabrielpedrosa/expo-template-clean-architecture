@@ -7,6 +7,7 @@ import Env, { EnvToken } from "./domain/entities/Env";
 
 @module({
   providers: [
+    // TODO: add the providers here
     I18n,
     {
       isGlobal: true,

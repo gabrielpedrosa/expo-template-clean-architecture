@@ -7,4 +7,4 @@ import { getModuleContainer, module } from "inversiland";
 })
 export class CommonModule {}
 
-export const coreModuleContainer = getModuleContainer(CommonModule);
+export const commonModuleContainer = getModuleContainer(CommonModule);

@@ -1,12 +1,18 @@
 import Navigation from "./navigation";
 import useCachedResources from "./hooks/useCachedResources";
+import { Splash } from "./screens/splash/Splash";
+import { useState } from "react";
 
 export default function App() {
-  const isLoadingComplete = useCachedResources();
+	const [splashComplete, setSplashComprete] = useState(false);
 
-  if (!isLoadingComplete) {
-    return null;
-  }
+    const onComplete = (status: boolean) => {
+        setSplashComprete(status);
+    }
 
-  return (<Navigation />);
+    return (
+        splashComplete 
+        ? <Navigation />
+        : <Splash onComplete={onComplete}  />
+    );
 }

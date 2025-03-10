@@ -11,6 +11,7 @@
         },
         "splashScreen": {
             "show": true,
+            "showVideo": true,
             "image": "./assets/images/splash/splash-screen.png", 
             "resizeMode": "contain",
             "backgroundColor": "#F5ECD5"

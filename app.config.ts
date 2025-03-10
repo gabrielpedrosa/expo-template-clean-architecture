@@ -1,6 +1,7 @@
 import { ExpoConfig } from "@expo/config-types";
 import packageJson from "./package.json";
-import configJson from "@config/config.json";
+// import configJson from "@config/config.json";
+import configJson from "./src/config/config.json";
 
 const appConfig: ExpoConfig = {
 	name: configJson.app.name,
@@ -19,7 +20,7 @@ const appConfig: ExpoConfig = {
 	updates: {
 		fallbackToCacheTimeout: 0,
 	},
-	assetBundlePatterns: ["**/*"],
+	assetBundlePatterns: ["**/*", "assets/**/*"],
 	ios: {
 		supportsTablet: true,
 	},

@@ -2,15 +2,12 @@ import { log } from 'console';
 import { promises as fs } from 'fs';
 import * as path from 'path';
 import * as readline from 'readline';
+import { getModuleTemplate } from './_resources/module-template';
+import { ModuleDir, ModuleFile } from './_resources/module-types';
+import { capitalize, removeSpecialChars } from './_resources/utils';
+import { get } from 'http';
+import { getModuleFolderStructure } from './_resources/module-folder-structure';
 
-function capitalize(str: string): string {
-    if (!str) return "";
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-}
-
-function removeSpecialChars(str: string): string {
-    return str.replace(/[^a-zA-Z0-9 ]/g, ""); // Remove tudo exceto letras, números e espaços
-}
 
 class PromptService {
     private rl: readline.Interface;
@@ -98,17 +95,6 @@ class FileService implements IFileService {
     }
 }
 
-type ModuleFile = {
-    name: string;
-    content: string;
-}
-
-type ModuleDir = {
-    name: string;
-    subDirs?: ModuleDir[];
-    files?: ModuleFile[];
-}
-
 async function createModule(
     fileService: IFileService,
     dir: ModuleDir,
@@ -189,58 +175,9 @@ async function main(): Promise<void> {
     promptService.close();
     moduleName = removeSpecialChars(moduleName);
 
-    const moduleContent = `import { getModuleContainer, module } from "inversiland";
-
-@module({
-  providers: [ 
-    // TODO: add the providers here. 
-  ],
-})
-export class ${capitalize(moduleName)}Module {}
-
-export const coreModuleContainer = getModuleContainer(${capitalize(moduleName)}Module);`
+    const moduleContent = getModuleTemplate(capitalize(moduleName));
     
-    const modulesDirs = [
-        {
-            name: moduleName,
-            subDirs: [
-                {
-                    name: 'application',
-                    subDirs: [
-                        {name: 'types'} as ModuleDir,
-                        {name: 'use-cases'} as ModuleDir,
-                    ]
-                } as ModuleDir,
-                {
-                    name: 'domain',
-                    subDirs: [
-                        {name: 'entities'} as ModuleDir,
-                        {name: 'enums'} as ModuleDir,
-                        {name: 'repositories'} as ModuleDir,
-                    ]
-                } as ModuleDir,
-                {
-                    name: 'infrastructure',
-                    subDirs: [
-                        {name: 'implementations'} as ModuleDir,
-                        {name: 'dto'} as ModuleDir,
-                    ]
-                } as ModuleDir,
-                {
-                    name: 'presentation',
-                    subDirs: [
-                        {name: 'components'} as ModuleDir,
-                        {name: 'screens'} as ModuleDir,
-                        {name: 'store'} as ModuleDir,
-                        {name: 'states'} as ModuleDir,
-                    ]
-                } as ModuleDir
-            ],
-            files: [
-                {name: capitalize(moduleName)+'Module.ts', content: moduleContent } as ModuleFile,
-            ]
-        } as ModuleDir
-    ]
+    const modulesDirs = getModuleFolderStructure(moduleName, moduleContent);
 
     const baseDir = "src/";
     const fileService = new FileService(baseDir);

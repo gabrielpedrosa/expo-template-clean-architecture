@@ -14,6 +14,15 @@ Com este template, você pode:
 
 Seja para projetos pessoais ou profissionais, este template é uma solução eficiente para quem busca produtividade e boas práticas de desenvolvimento. 🚀
 
+## Funcionalidades Checklist
+
+- [ ] Configuração inicial com Expo
+- [ ] Estrutura baseada em Clean Architecture
+- [ ] Suporte a testes unitários e integração
+- [ ] Gerenciamento de navegação e rotas
+- [ ] Integração com APIs externas
+- [ ] Splash Screen com Vídeo
+
 ## Como Usar
 
 Para criar um novo projeto usando este template, execute o seguinte comando:

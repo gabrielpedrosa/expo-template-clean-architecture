@@ -4,16 +4,14 @@ import { SplashScreen } from "expo-router";
 import { useEffect, useState } from "react";
 
 // Impede que a SplashScreen seja ocultada automaticamente
-if(configJson.app.splashScreen.show) {
-	SplashScreen.preventAutoHideAsync();
-}
+SplashScreen.preventAutoHideAsync();
 
 type SplashProps = {
     onComplete(status: boolean): void;
 }
 
 export const Splash: React.FC<SplashProps> = ({ onComplete }) => {
-    const [showSplashScreen] = useState(configJson.app.splashScreen.showVideo);
+    const [showSplashScreen] = useState(true);
 
     useEffect(() => {
         if (!showSplashScreen) {

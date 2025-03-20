@@ -2,11 +2,11 @@
     "app": {
         "name": "expo-template-clean-architecture", 
         "slug": "expo-template-clean-architecture", 
-        "icon": "./assets/images/adaptive-icon.png",
+        "icon": "./assets/images/adaptive-icon-test.png",
         "package": "com.example.expotemplatecleanarchitecture", 
         "favicon": "./assets/images/favicon.png", 
         "adaptiveIcon": {
-            "foregroundImage": "./assets/images/adaptive-icon.png", 
+            "foregroundImage": "./assets/images/splash/splash-icon.png", 
             "backgroundColor": "#F5ECD5"
         },
         "splashScreen": {

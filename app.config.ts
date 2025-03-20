@@ -1,21 +1,19 @@
 import { ExpoConfig } from "@expo/config-types";
 import packageJson from "./package.json";
-// import configJson from "@config/config.json";
-import configJson from "./src/config/config.json";
 
 const appConfig: ExpoConfig = {
-	name: configJson.app.name,
-	slug: configJson.app.slug,
+	name: "expo-template-clean-architecture",
+	slug: "expo-template-clean-architecture",
 	scheme: "rnca",
 	version: packageJson.version,
-	orientation: "portrait",
-	icon: configJson.app.icon,
+	orientation: "default",
+	icon: "./assets/images/icon.png",
 	userInterfaceStyle: "light",
 	newArchEnabled: true,
 	splash: {
-		image: configJson.app.splashScreen.image,
-		resizeMode: configJson.app.splashScreen.resizeMode as "contain" | "cover" ?? "contain",
-		backgroundColor: configJson.app.splashScreen.backgroundColor ?? "#FFFFFF",
+		image: "./assets/splash/splash-icon.png",
+		resizeMode: "contain",
+		backgroundColor: "#F5ECD5",
 	},
 	updates: {
 		fallbackToCacheTimeout: 0,
@@ -25,11 +23,14 @@ const appConfig: ExpoConfig = {
 		supportsTablet: true,
 	},
 	android: {
-		package: configJson.app.package,
-		adaptiveIcon: configJson.app.adaptiveIcon
+		package: "com.gabrielpedrosa.expo_template_clean_architecture",
+		adaptiveIcon: {
+			foregroundImage: "./assets/images/adaptive-icon.png", 
+			backgroundColor: "#F5ECD5"
+		},
 	},
 	web: {
-		favicon: configJson.app.favicon
+		favicon: "./assets/images/favicon.png"
 	},
 	plugins: [
 		[

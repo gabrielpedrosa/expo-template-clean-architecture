@@ -12,6 +12,7 @@
       ],
       "@core/*": ["./src/core/*"],
       "@config/*": ["./src/config/*"],
+      "@assets/*": ["./assets/*"],
     }
   },
   "include": [

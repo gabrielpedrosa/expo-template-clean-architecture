@@ -27,7 +27,7 @@ export const VideoSplashScreen = ({ onComplete }: VideoSplashScreenProps) => {
         <Video
             style={StyleSheet.absoluteFill}
             resizeMode={ResizeMode.COVER}
-            source={require('../../../../../assets/videos/video-splash.mp4')}
+            source={require('@assets/splash/video-splash.mp4')}
             isLooping={false}
             shouldPlay={true}
             onPlaybackStatusUpdate={onPlaybackStatusUpdate}

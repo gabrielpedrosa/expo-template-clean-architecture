@@ -44,6 +44,13 @@ const appConfig: ExpoConfig = {
 		],
 		"expo-localization",
 		"expo-tracking-transparency",
+		[
+			"expo-video",
+			{
+			  "supportsBackgroundPlayback": true,
+			  "supportsPictureInPicture": true
+			}
+		]
 	],
 };
 
